@@ -114,9 +114,9 @@ Performance
 
 A key feature of Dapper is performance. The following metrics show how long it takes to execute a `SELECT` statement against a DB (in various config, each labeled) and map the data returned to objects.
 
-The benchmarks can be found in [Dapper.Tests.Performance](https://github.com/StackExchange/Dapper/tree/main/Dapper.Tests.Performance) (contributions welcome!) and can be run via:
+The benchmarks can be found in [Dapper.Tests.Performance](https://github.com/StackExchange/Dapper/tree/main/benchmarks/Dapper.Tests.Performance) (contributions welcome!) and can be run via:
 ```bash
-dotnet run -p .\Dapper.Tests.Performance\ -c Release -f netcoreapp3.1 -- -f * --join
+dotnet run -p .\benchmarks\Dapper.Tests.Performance\ -c Release -f netcoreapp3.1 -- -f * --join
 ```
 Output from the latest run is:
 ``` ini
@@ -201,7 +201,7 @@ Literal replacements
 Dapper supports literal replacements for bool and numeric types.
 
 ```csharp
-connection.Query("select * from User where UserTypeId = {=Admin}", new { UserTypeId.Admin }));
+connection.Query("select * from User where UserTypeId = {=Admin}", new { UserTypeId.Admin });
 ```
 
 The literal replacement is not sent as a parameter; this allows better plans and filtered index usage but should usually be used sparingly and after testing. This feature is particularly useful when the value being injected
@@ -389,7 +389,7 @@ Dapper has no DB specific implementation details, it works across all .NET ADO p
 
 Do you have a comprehensive list of examples?
 ---------------------
-Dapper has a comprehensive test suite in the [test project](https://github.com/StackExchange/Dapper/tree/main/Dapper.Tests).
+Dapper has a comprehensive test suite in the [test project](https://github.com/StackExchange/Dapper/tree/main/tests/Dapper.Tests).
 
 Who is using this?
 ---------------------
